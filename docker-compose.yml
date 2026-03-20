@@ -1,0 +1,27 @@
+services:
+  mongodb:
+    image: mongo:8.2
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.runCommand({ ping: 1 }).ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  word-frequency-app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    environment:
+      - SPRING_MONGODB_URI=mongodb://mongodb:27017/wordfrequencydb
+      - APP_HISTORY_ENABLED=true
+
+volumes:
+  mongodb_data:
