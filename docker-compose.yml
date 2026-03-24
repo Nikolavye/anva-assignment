@@ -15,7 +15,7 @@ services:
   word-frequency-app:
     build: .
     ports:
-      - "8080:8080"
+      - "7429:8080"
     depends_on:
       mongodb:
         condition: service_healthy

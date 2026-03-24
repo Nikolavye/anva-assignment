@@ -1,4 +1,7 @@
 target/
+.m2-local/
+.claude/
+.playwright-mcp/
 .idea/
 .project
 .classpath

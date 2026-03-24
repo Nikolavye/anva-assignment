@@ -30,7 +30,7 @@ If you also want MongoDB-backed history, start the full stack with Docker Compos
 docker compose up --build
 ```
 
-Then open [http://localhost:8080](http://localhost:8080).
+Then open [http://localhost:7429](http://localhost:7429).
 
 ### Local
 1. Install Java 25 LTS.
