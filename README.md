@@ -17,10 +17,12 @@ Fastest standalone path for a new user. This builds the app image and runs the A
 
 ```bash
 docker build -t word-frequency-service .
-docker run --rm -p 8080:8080 word-frequency-service
+docker run --rm -p 7429:8080 word-frequency-service
 ```
 
-Then open [http://localhost:8080](http://localhost:8080).
+Then open [http://localhost:7429](http://localhost:7429).
+
+The application still listens on port `8080` inside the container; `7429` is the host-side port mapping to avoid common local port conflicts.
 
 In this standalone mode, the analysis APIs work normally and history storage is skipped.
 
